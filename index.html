@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Year-End Finish Line</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            dark: {
+              bg: '#1a1a1a',
+              card: '#2d2d2d',
+              input: '#404040'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "react/jsx-runtime": "https://esm.sh/react@18.2.0/jsx-runtime",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+  <style>
+    /* Global transition for theme switching */
+    body, div, nav, aside, header, table, tr, td, th, input, select, textarea {
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+    html, body {
+      height: 100%;
+      overflow: hidden; /* Prevent body scroll, let app handle it */
+    }
+  </style>
+</head>
+<body class="bg-gray-100 dark:bg-[#1a1a1a] text-slate-900 dark:text-gray-100">
+  <div id="app" class="h-full"></div>
+  <script type="module" src="./index.tsx"></script>
+</body>
+</html>
