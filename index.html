@@ -28,8 +28,8 @@
     "react": "https://esm.sh/react@18.2.0",
     "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
     "react/jsx-runtime": "https://esm.sh/react@18.2.0/jsx-runtime",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
   }
 }
 </script>
@@ -41,6 +41,55 @@
     html, body {
       height: 100%;
       overflow: hidden; /* Prevent body scroll, let app handle it */
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeOutRight {
+      from { opacity: 1; transform: translateX(0); }
+      to { opacity: 0; transform: translateX(20px); }
+    }
+    @keyframes popIn {
+      0% { transform: scale(0.95); opacity: 0.5; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    @keyframes bounceCheck {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+    .animate-fade-in-down {
+      animation: fadeInDown 0.3s ease-out forwards;
+    }
+    .animate-pop-in {
+      animation: popIn 0.2s ease-out forwards;
+    }
+    .check-bounce:active {
+      animation: bounceCheck 0.3s ease;
+    }
+    .drag-over {
+      border: 2px dashed #3b82f6;
+      background-color: rgba(59, 130, 246, 0.05);
+    }
+    /* Custom Scrollbar for dark mode */
+    .dark ::-webkit-scrollbar-thumb {
+      background-color: #4b5563;
+    }
+    .dark ::-webkit-scrollbar-track {
+      background-color: #1f2937;
+    }
+    .bottom-safe-area {
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+    
+    /* Smooth Task Transition & Flicker Prevention */
+    .task-item-transition {
+      transition: opacity 0.3s ease, transform 0.2s ease, background-color 0.2s ease;
+      will-change: opacity, transform; /* Hardware acceleration hint */
+      backface-visibility: hidden; /* Prevent flickering */
     }
   </style>
 </head>
